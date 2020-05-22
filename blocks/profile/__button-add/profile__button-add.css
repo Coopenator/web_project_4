@@ -10,3 +10,8 @@
     border: 2px solid white;
     border-radius: 2px;
 }
+
+.profile__button-add:hover {
+    background-image: url(../../../images/profile-plus-button-grey.png);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+}

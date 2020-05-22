@@ -10,3 +10,8 @@
     border: 1px solid white;
     border-radius: 2px;
 }
+
+.profile__button-edit:hover {
+    background-image: url(../../../images/profile-pencil-button-grey.png);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
