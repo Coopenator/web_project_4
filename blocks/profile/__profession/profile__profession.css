@@ -4,3 +4,17 @@
     line-height: 22px;
     margin: 16px 0 0;
 }
+
+@media screen and (max-width: 700px) {
+    .profile__profession {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 405px) {
+    .profile__profession {
+        font-size: 14px;
+        line-height: 17px;
+        margin: 0;
+    }
+}

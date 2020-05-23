@@ -15,3 +15,17 @@
 .popup__button-close:hover {
     background-image: url(../../../images/popup-close-button-grey.png);
 }
+
+@media screen and (max-width: 575px) {
+    .popup__button-close {
+        width: 30px;
+        height: 30px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .popup__button-close {
+        right: 2%;
+        top: -13%;
+    }
+}
