@@ -17,3 +17,5 @@ Also furthering our knowledge of GIT and BEM methodology.
 **Website link**
 
 website link: (https://coopenator.github.io/web_project_4/)
+
+Note to reviewer: As of the time of submission, the webpage on GIT was NOT displaying current updates to CSS files (media queries) despite them being in the files on the repository.
