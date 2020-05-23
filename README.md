@@ -2,15 +2,18 @@
 
 ### Overview
 
-* Figma
-* Images
+This is the 4th project in Practicum's website development course. It's focus is to implement a form popup window to modify the profile information for the user. First implementation of JavaScript in the coursework.
 
-**Figma**
+**Techniques**
+* HTML
+* CSS
+* JavaScript
+* grid
+* flex
 
-* [Link to the project in Figma](https://www.figma.com/file/mUgu8OSHWE0M6p6vfwmdu9/Sprint-4-Around-The-U.S.-desktop-mobile?node-id=0%3A1)
+Also furthering our knowledge of GIT and BEM methodology.
 
-**Images**
 
-The way you'll do this at work is by exporting images directly from Figma — we recommend doing that to practice more. Don't forget to optimize them [here](https://tinypng.com/), so your project loads faster. 
+**Website link**
 
-Have fun with JavaScript!
+website link: (https://coopenator.github.io/web_project_3/)
