@@ -1,3 +1,6 @@
+const buttonEdit = document.querySelector(".profile__button-edit");
+const buttonClose = document.querySelector(".popup__button-close");
+
 // Let's find the form in the DOM
 let formElement = document.querySelector(".popup")// Use the querySelector() method
 
@@ -16,8 +19,8 @@ function formSubmitHandler (evt) {
     // Get the values of each field from the corresponding value property
 
     // Select elements where the field values will be entered
-    document.querySelector("profile__name").textContent = nameInput.value;
-    document.querySelector("profile__profession").textContent = jobInput.value;
+    document.querySelector(".profile__name").textContent = nameInput.value;
+    document.querySelector(".profile__profession").textContent = jobInput.value;
 
     // Insert new values using the textContent property of the querySelector() method
 }
@@ -25,9 +28,6 @@ function formSubmitHandler (evt) {
 // Connect the handler to the form:
 // it will watch the submit event
 formElement.addEventListener('submit', formSubmitHandler);
-
-const buttonEdit = document.querySelector(".profile__button-edit");
-const buttonClose = document.querySelector(".popup__button-close");
 
 function visible() {   
     document.querySelector(".popup").classList.add("popup_active");
