@@ -1,8 +1,8 @@
 const buttonEdit = document.querySelector(".profile__button-edit");
 const buttonClose = document.querySelector(".popup__button-close");
 const formElement = document.querySelector(".popup")// Use the querySelector() method
-const nameInput = formElement.querySelector("#name");// Use querySelector()
-const jobInput = formElement.querySelector("#job");// Use querySelector()
+const nameInput = formElement.querySelector(".type_name");// Use querySelector()
+const jobInput = formElement.querySelector(".type_job");// Use querySelector()
 
 // Next is the form submit handler, though
 // it won't submit anywhere just yet

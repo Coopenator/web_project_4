@@ -6,12 +6,18 @@
     font-weight: normal;
     font-size: 18px;
     line-height: 22px;
-    margin-top: 58px;
+    margin-top: 40px;
 }
 
 @media screen and (max-width: 575px) {
     .popup__button-save {
         height: 35px;
-        margin-top: 25px;
+        margin-top: 35px;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .popup__button-save {
+        margin-top: 30px;
     }
 }
