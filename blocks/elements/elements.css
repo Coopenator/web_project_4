@@ -24,6 +24,6 @@
         grid-template-columns: none;
         grid-template-rows: repeat(6, 1fr);
         row-gap: 20px;
-        width: calc(100% - 20px);
+        max-width: calc(100% - 20px);
     }
 }

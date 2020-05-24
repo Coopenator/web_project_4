@@ -13,7 +13,7 @@
 
 .profile__button-add:hover {
     background-image: url(../../../images/profile-plus-button-grey.png);
-    border: 2px solid rgba(255, 255, 255, 0.6);
+    border: 2px solid rgba(255, 255, 255, .6);
 }
 
 @media screen and (max-width: 700px) {
@@ -26,6 +26,6 @@
 
 @media screen and (max-width: 405px) {
     .profile__button-add {
-        width: 100%
+        width: 100%;
     }
 }

@@ -1,8 +1,8 @@
 const buttonEdit = document.querySelector(".profile__button-edit");
 const buttonClose = document.querySelector(".popup__button-close");
-
-// Let's find the form in the DOM
-let formElement = document.querySelector(".popup")// Use the querySelector() method
+const formElement = document.querySelector(".popup")// Use the querySelector() method
+const nameInput = formElement.querySelector("#name");// Use querySelector()
+const jobInput = formElement.querySelector("#job");// Use querySelector()
 
 // Next is the form submit handler, though
 // it won't submit anywhere just yet
@@ -12,8 +12,7 @@ function formSubmitHandler (evt) {
                                                 // We'll explain it in more detail later.
 
     // Let's find the form fields in the DOM
-    let nameInput = formElement.querySelector("#name")// Use querySelector()
-    let jobInput = formElement.querySelector("#job")// Use querySelector()
+    
 
 
     // Get the values of each field from the corresponding value property
@@ -30,13 +29,11 @@ function formSubmitHandler (evt) {
 formElement.addEventListener('submit', formSubmitHandler);
 
 function visible() {   
-    document.querySelector(".popup").classList.add("popup_active");
-    return;
+    document.querySelector(".popup").classList.toggle("popup_active");
 }
 
 function hidden() {
-    document.querySelector(".popup").classList.remove("popup_active");
-    return;
+    document.querySelector(".popup").classList.toggle("popup_active");
 }
 
 buttonEdit.addEventListener("click", visible);

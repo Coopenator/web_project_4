@@ -1,6 +1,12 @@
 .element__button-like {
-    margin: 0;
+    background-image: url(../../../images/elements-heart-button.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
     width: 20px;
     height: 18px;
     align-self: center;
+    padding: 0;
+    border: none;
+    background-color: #fff;
 }
