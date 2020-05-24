@@ -3,6 +3,8 @@ const buttonClose = document.querySelector(".popup__button-close");
 const formElement = document.querySelector(".popup")// Use the querySelector() method
 const nameInput = formElement.querySelector(".type_name");// Use querySelector()
 const jobInput = formElement.querySelector(".type_job");// Use querySelector()
+const nameSet = document.querySelector(".profile__name");
+const jobSet = document.querySelector(".profile__profession");
 
 // Next is the form submit handler, though
 // it won't submit anywhere just yet
@@ -12,15 +14,10 @@ function formSubmitHandler (evt) {
                                                 // We'll explain it in more detail later.
 
     // Let's find the form fields in the DOM
-    
-
-
     // Get the values of each field from the corresponding value property
-
     // Select elements where the field values will be entered
-    document.querySelector(".profile__name").textContent = nameInput.value;
-    document.querySelector(".profile__profession").textContent = jobInput.value;
-
+    nameSet.textContent = nameInput.value;
+    jobSet.textContent = jobInput.value;
     // Insert new values using the textContent property of the querySelector() method
 }
 

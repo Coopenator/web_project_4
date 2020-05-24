@@ -4,6 +4,11 @@
     line-height: 29px;
     margin-top: 25px;
     margin-bottom: 32px;
-    text-overflow: ellipsis;
+    white-space: nowrap;
     overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.element__title:hover {
+    overflow: visible;
 }

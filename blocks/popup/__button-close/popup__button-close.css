@@ -15,6 +15,7 @@
 
 .popup__button-close:hover {
     background-image: url(../../../images/popup-close-button-grey.png);
+    cursor: pointer;
 }
 
 @media screen and (max-width: 575px) {
