@@ -1,0 +1,20 @@
+.element__button-remove {
+    background-image: url(../../../images/trash.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    background-color: transparent;
+    justify-self: right;
+    border: none;
+    margin: 19px 16px auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: .1s ease-in-out;
+    cursor: pointer;
+}
+
+.element__button-remove:hover {
+    background-image: url(../../../images/trash-hover.png);
+}

@@ -28,64 +28,59 @@
                 </section>
 
                 <section class="elements">
-                    <div class="element">
-                        <img src="./images/elements-yosemite.png" class="element__image" alt="river flowing through trees with butte in backdrop">
-                        <div class="element__info">
-                            <h2 class="element__title">Yosemite Valley</h2>
-                            <button class="element__button-like"></button>
-                        </div>
-                    </div>
-                    <div class="element">
-                        <img src="./images/elements-lake-louise.png" class="element__image" alt="mountains over blue water">
-                        <div class="element__info">
-                            <h2 class="element__title">Lake Louise</h2>
-                            <button class="element__button-like"></button>
-                        </div>
-                    </div>
-                    <div class="element">
-                        <img src="./images/elements-bald-mountain.png" class="element__image" alt="mountains at sunset">
-                        <div class="element__info">
-                            <h2 class="element__title">Bald Mountains</h2>
-                            <button class="element__button-like"></button>
-                        </div>
-                    </div>
-                    <div class="element">
-                        <img src="./images/elements-latemar.png" class="element__image" alt="starry night sky over snow-dusted mountains">
-                        <div class="element__info">
-                            <h2 class="element__title">Latemar</h2>
-                            <button class="element__button-like"></button>
-                        </div>
-                    </div>
-                    <div class="element">
-                        <img src="./images/elements-vanois.png" class="element__image" alt="rocky lake shore below snow-dusted mountains">
-                        <div class="element__info">
-                            <h2 class="element__title">Vanois National Park</h2>
-                            <button class="element__button-like"></button>
-                        </div>
-                    </div>
-                    <div class="element">
-                        <img src="./images/elements-lago-di-braies.png" class="element__image" alt="small boats docked at a mountain lake pier">
-                        <div class="element__info">
-                            <h2 class="element__title">Lago di Braies</h2>
-                            <button class="element__button-like"></button>
-                        </div>
+                    <div class="element card">
+
                     </div>
                 </section>
 
-                <section class="popup">
+                <section class="popup popup__edit-info">
                     <form class="popup__container" id="editPopup">
                         <button class="popup__button-close"></button>
                         <h2 class="popup__title">Edit Profile</h2>
-                        <input type="text" value="Jacques Cousteau" class="popup__input type_name" id="type_name" name="type_name">
-                        <input type="text" value="Explorer" class="popup__input type_job" id="type_job" name="type_job">
+                        <input type="text" placeholder="Jacques Cousteau" class="popup__input type_name" id="type_name" name="type_name">
+                        <input type="text" placeholder="Explorer" class="popup__input type_job" id="type_job" name="type_job">
                         <button type="submit" class="popup__button-save">Save</button>
                     </form>
                 </section>
+
+                <section class="popup popup__add-image">
+                    <form class="popup__container" id="addPopup">
+                        <button class="popup__button-close"></button>
+                        <h2 class="popup__title">Add Image</h2>
+                        <input type="text" placeholder="Image Name" class="popup__input type_name" id="type_name" name="type_name">
+                        <input type="url" placeholder="URL" class="popup__input type_url" id="type_url" name="url">
+                        <button type="submit" class="popup__button-save">Save</button>
+                    </form>
+                </section>
+
+                <section class="popup">
+                    <form class="popup__container popup__image-large" id="imagePopup">
+                        <button class="popup__button-close"></button>
+                        <figure>
+                            <img src="" alt="">
+                            <firgcaption></firgcaption>
+                        </figure>
+                    </form>
+                </section>
+
             </main>
             <footer class="footer">
                 <p class="footer__copyright">&copy; 2020 Around The U.S.</p>
             </footer>
         </div>
+
+        <template class="card-template">
+            <div class="element card">
+                <div class="element__image">
+                    <button class="element__button-remove"></button>
+                </div>
+                <div class="element__info">
+                    <h2 class="element__title"></h2>
+                    <button class="element__button-like"></button>
+                </div>
+            </div>
+        </template>
+
         <script src="./scripts/index.js"></script>
     </body>
 </html>

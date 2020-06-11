@@ -9,3 +9,4 @@
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/popup/popup.css);
 @import url(../blocks/popup/_active/popup_active.css);
+@import url(../blocks/popup/__image/popup__image-large.css);
