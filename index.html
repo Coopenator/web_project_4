@@ -47,20 +47,18 @@
                     <form class="popup__container" id="addPopup">
                         <button class="popup__button-close"></button>
                         <h2 class="popup__title">Add Image</h2>
-                        <input type="text" placeholder="Image Name" class="popup__input type_name" id="type_name" name="type_name">
-                        <input type="url" placeholder="URL" class="popup__input type_url" id="type_url" name="url">
+                        <input type="text" placeholder="Image Name" class="popup__input type_image-name" id="type_name" name="type_name">
+                        <input type="url" placeholder="URL" class="popup__input type_image-url" id="type_url" name="url">
                         <button type="submit" class="popup__button-save">Save</button>
                     </form>
                 </section>
 
-                <section class="popup">
-                    <form class="popup__container popup__image-large" id="imagePopup">
+                <section class="popup popup__image-large">
+                    <figure class="popup__container popup__image-container" id="imagePopup">
                         <button class="popup__button-close"></button>
-                        <figure>
-                            <img src="" alt="">
-                            <firgcaption></firgcaption>
-                        </figure>
-                    </form>
+                        <img class="popup__image" src="" alt="">
+                        <firgcaption class="popup__image-title"></firgcaption>
+                    </figure>
                 </section>
 
             </main>
@@ -71,9 +69,8 @@
 
         <template class="card-template">
             <div class="element card">
-                <div class="element__image">
-                    <button class="element__button-remove"></button>
-                </div>
+                <div class="element__image"></div>
+                <button class="element__button-remove"></button>
                 <div class="element__info">
                     <h2 class="element__title"></h2>
                     <button class="element__button-like"></button>

@@ -1,0 +1,9 @@
+.popup__image-container {
+    display: grid;
+    position: relative;
+    background-color: transparent;
+    padding: 0;
+    width: initial;
+    height: initial;
+    margin: 10% auto;
+}

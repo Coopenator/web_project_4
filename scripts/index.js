@@ -5,10 +5,18 @@ const nameInput = editProfileModal.querySelector(".type_name");// Use querySelec
 const jobInput = editProfileModal.querySelector(".type_job");// Use querySelector()
 const nameSet = document.querySelector(".profile__name");
 const jobSet = document.querySelector(".profile__profession");
+const imageNameSet = document.querySelector(".popup__image-title");
+const imageSet = document.querySelector(".popup__image");
+const imageNameInput = addImageModal.querySelector(".type_image-name");
+const imageInput = addImageModal.querySelector(".type_image-url");
+const elementsContainer = document.querySelector(".elements");
 const buttonEdit = document.querySelector(".profile__button-edit");
 const buttonEditClose = editProfileModal.querySelector(".popup__button-close");
 const buttonAdd = document.querySelector(".profile__button-add");
 const buttonAddClose = addImageModal.querySelector(".popup__button-close");
+const buttonImageClose = largeImageModal.querySelector(".popup__button-close");
+const popupImage = largeImageModal.querySelector(".popup__image");
+const popupTitle = largeImageModal.querySelector(".popup__image-title");
 
 function togglePopup(popup) {
     popup.classList.toggle("popup_active");
@@ -33,6 +41,8 @@ function formSubmitHandler (evt) {
 // it will watch the submit event
 editProfileModal.addEventListener('submit', formSubmitHandler);
 
+addImageModal.addEventListener('submit', imageFormSubmitHandler);
+
 buttonEdit.addEventListener("click", () => {
     togglePopup(editProfileModal);
 })
@@ -47,6 +57,10 @@ buttonAdd.addEventListener("click", () => {
 
 buttonAddClose.addEventListener("click", () => {
     togglePopup(addImageModal);
+})
+
+buttonImageClose.addEventListener("click", () => {
+    togglePopup(largeImageModal);
 })
 
 
@@ -100,12 +114,29 @@ const createCard = (data) => {
         e.target.closest(".card").remove();
     })
 
-    cardImage.addEventListener("click", () => {
+    cardImage.addEventListener("click", (evt) => {
+        popupImage.src = data.link;
+        popupImage.alt = data.name;
+        popupTitle.textContent = data.name;
+
         togglePopup(largeImageModal);
     })
 
     return cardElement;
 }
+
+function galleryHandleCard(image, title){
+    elementsContainer.prepend(createCard(image, title));
+
+}
+
+function imageFormSubmitHandler (evt) {
+    evt.preventDefault();
+    galleryHandleCard(imageInput.value, imageNameInput.value);
+
+    togglePopup(addImageModal);
+}
+
 
 const reverse = initialCards.reverse();
 reverse.forEach(data => createCard(data));
