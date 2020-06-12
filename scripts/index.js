@@ -1,15 +1,12 @@
-const editProfileModal = document.querySelector(".popup__edit-info");
-const addImageModal = document.querySelector(".popup__add-image");
-const largeImageModal = document.querySelector(".popup__image-large")// Use the querySelector() method
-const nameInput = editProfileModal.querySelector(".type_name");// Use querySelector()
-const jobInput = editProfileModal.querySelector(".type_job");// Use querySelector()
+const editProfileModal = document.querySelector(".edit-info");
+const addImageModal = document.querySelector(".add-image");
+const largeImageModal = document.querySelector(".image-large")// Use the querySelector() method
+const nameInput = editProfileModal.querySelector(".name");// Use querySelector()
+const jobInput = editProfileModal.querySelector(".job");// Use querySelector()
 const nameSet = document.querySelector(".profile__name");
 const jobSet = document.querySelector(".profile__profession");
-const imageNameSet = document.querySelector(".popup__image-title");
-const imageSet = document.querySelector(".popup__image");
-const imageNameInput = addImageModal.querySelector(".type_image-name");
-const imageInput = addImageModal.querySelector(".type_image-url");
-const elementsContainer = document.querySelector(".elements");
+const imageNameInput = addImageModal.querySelector(".image-name");
+const imageInput = addImageModal.querySelector(".image-url");
 const buttonEdit = document.querySelector(".profile__button-edit");
 const buttonEditClose = editProfileModal.querySelector(".popup__button-close");
 const buttonAdd = document.querySelector(".profile__button-add");
@@ -35,6 +32,7 @@ function formSubmitHandler (evt) {
     // Select elements where the field values will be entered
     nameSet.textContent = nameInput.value;
     jobSet.textContent = jobInput.value;
+    togglePopup(editProfileModal);
     // Insert new values using the textContent property of the querySelector() method
 }
 
@@ -113,7 +111,7 @@ const createCard = (title, image) => {
         e.target.closest(".card").remove();
     })
 
-    cardImage.addEventListener("click", (evt) => {
+    cardImage.addEventListener("click", () => {
         popupImage.src = image;
         popupImage.alt = title;
         popupTitle.textContent = title;
@@ -123,9 +121,6 @@ const createCard = (title, image) => {
 
     return cardElement;
 }
-
-const reverse = initialCards.reverse();
-reverse.forEach(data => createCard(data));
 
 const list = document.querySelector(".elements");
 
