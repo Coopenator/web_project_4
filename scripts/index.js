@@ -14,6 +14,7 @@ const buttonEdit = document.querySelector(".profile__button-edit");
 const buttonEditClose = editProfileModal.querySelector(".popup__button-close");
 const buttonAdd = document.querySelector(".profile__button-add");
 const buttonAddClose = addImageModal.querySelector(".popup__button-close");
+const addImage = addImageModal.querySelector(".popup__button-save");
 const buttonImageClose = largeImageModal.querySelector(".popup__button-close");
 const popupImage = largeImageModal.querySelector(".popup__image");
 const popupTitle = largeImageModal.querySelector(".popup__image-title");
@@ -40,8 +41,6 @@ function formSubmitHandler (evt) {
 // Connect the handler to the form:
 // it will watch the submit event
 editProfileModal.addEventListener('submit', formSubmitHandler);
-
-addImageModal.addEventListener('submit', imageFormSubmitHandler);
 
 buttonEdit.addEventListener("click", () => {
     togglePopup(editProfileModal);
@@ -93,7 +92,7 @@ const initialCards = [
 
 const cardTemplate = document.querySelector(".card-template").content.querySelector(".card");
 
-const createCard = (data) => {
+const createCard = (title, image) => {
     const cardElement = cardTemplate.cloneNode(true);
 
     const cardTitle = cardElement.querySelector(".element__title");
@@ -101,8 +100,8 @@ const createCard = (data) => {
     const cardLikeButton = cardElement.querySelector(".element__button-like");
     const cardRemoveButton = cardElement.querySelector(".element__button-remove");
 
-    cardTitle.textContent = data.name;
-    cardImage.style.backgroundImage = `url(${data.link})`;
+    cardTitle.textContent = title;
+    cardImage.style.backgroundImage = `url('${image}')`;
 
     cardLikeButton.addEventListener("click", () => {
         // change Heart color()
@@ -115,9 +114,9 @@ const createCard = (data) => {
     })
 
     cardImage.addEventListener("click", (evt) => {
-        popupImage.src = data.link;
-        popupImage.alt = data.name;
-        popupTitle.textContent = data.name;
+        popupImage.src = image;
+        popupImage.alt = title;
+        popupTitle.textContent = title;
 
         togglePopup(largeImageModal);
     })
@@ -125,28 +124,21 @@ const createCard = (data) => {
     return cardElement;
 }
 
-function galleryHandleCard(image, title){
-    elementsContainer.prepend(createCard(image, title));
-
-}
-
-function imageFormSubmitHandler (evt) {
-    evt.preventDefault();
-    galleryHandleCard(imageInput.value, imageNameInput.value);
-
-    togglePopup(addImageModal);
-}
-
-
 const reverse = initialCards.reverse();
 reverse.forEach(data => createCard(data));
 
 const list = document.querySelector(".elements");
 
-const renderCard = (data) => {
-    list.prepend(createCard(data));
+const renderCard = (title, image) => {
+    list.prepend(createCard(title, image));
 }
 
 initialCards.forEach((data) => {
-    renderCard(data);
+    renderCard(data.name, data.link);
 })
+
+addImage.addEventListener('click', (e) => {
+    e.preventDefault();
+    renderCard(imageNameInput.value, imageInput.value);
+    togglePopup(addImageModal);
+  });

@@ -1,9 +1,20 @@
 .popup__image-container {
-    display: grid;
     position: relative;
     background-color: transparent;
     padding: 0;
-    width: initial;
-    height: initial;
-    margin: 10% auto;
+    width: auto;
+    height: 75vh;
+    margin: 7% auto;
+}
+
+@media screen and (max-width: 745px) {
+    .popup__image-container {
+        margin: 10% auto;
+    }
+}
+
+@media screen and (max-width: 475px) {
+    .popup__image-container {
+        margin: 30% auto;
+    }
 }
