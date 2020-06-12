@@ -1,4 +1,4 @@
-# Project 4: Around The U.S.
+# Project 5: Around The U.S.
 
 ### Overview
 
@@ -12,6 +12,11 @@ This is the 4th project in Practicum's website development course. It's focus is
 * flex
 
 Also furthering our knowledge of GIT and BEM methodology.
+
+**Additions made for Project 5**
+* added form functionality to Add Card button
+* added popup for image viewing
+* added fading transitions to all popups
 
 
 **Website link**
