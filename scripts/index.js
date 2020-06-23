@@ -20,24 +20,15 @@ function togglePopup(popup) {
     popup.classList.toggle("popup_active");
 }
 
-// Next is the form submit handler, though
-// it won't submit anywhere just yet
 function formSubmitHandler (evt) {
-    evt.preventDefault(); // This line stops the browser from submitting the form in the default way.
-                                                // Having done so, we can define our own way of submitting the form.
-                                                // We'll explain it in more detail later.
+    evt.preventDefault(); 
 
-    // Let's find the form fields in the DOM
-    // Get the values of each field from the corresponding value property
-    // Select elements where the field values will be entered
     nameSet.textContent = nameInput.value;
     jobSet.textContent = jobInput.value;
     togglePopup(editProfileModal);
-    // Insert new values using the textContent property of the querySelector() method
+
 }
 
-// Connect the handler to the form:
-// it will watch the submit event
 editProfileModal.addEventListener('submit', formSubmitHandler);
 
 buttonEdit.addEventListener("click", () => {
@@ -59,6 +50,28 @@ buttonAddClose.addEventListener("click", () => {
 buttonImageClose.addEventListener("click", () => {
     togglePopup(largeImageModal);
 })
+
+const togglePopupAlt = () => {
+    const popupList = Array.from(document.querySelectorAll(".popup"));
+    popupList.forEach((modal) => {
+        modal.addEventListener("click", (evt) => {
+        togglePopup(evt.target);
+        });
+
+    });
+    popupList.forEach(() => {
+        
+        document.addEventListener("keydown", (evt) =>{
+            const escKey = 27;
+            if (evt.keyCode === escKey){
+                togglePopup(document.querySelector(".popup_active"));
+        }
+    });
+   });
+}
+
+togglePopupAlt();
+
 
 
 const initialCards = [

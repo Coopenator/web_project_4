@@ -35,9 +35,13 @@
                     <form class="popup__container" id="editPopup">
                         <button class="popup__button-close"></button>
                         <h2 class="popup__title">Edit Profile</h2>
-                        <input type="text" value="Jacques Cousteau" class="popup__input name">
-                        <input type="text" value="Explorer" class="popup__input job">
-                        <button type="submit" class="popup__button-save">Save</button>
+                        <input id="profile-name" type="text" value="Jacques Cousteau" class="popup__input popup__input_type_error name" required minlength="2" maxlength="40">
+                        <span id="profile-name-error" class="popup__error popup__error_visible"></span>
+
+                        <input id="profile-descrip" type="text" value="Explorer" class="popup__input popup__input_type_error job" required minlength="2" maxlength="200">
+                        <span id="profile-descrip-error" class="popup__error popup__error_visible"></span>
+
+                        <button type="submit" class="popup__button-save popup__button_disabled" disabled>Save</button>
                     </form>
                 </section>
 
@@ -45,9 +49,13 @@
                     <form class="popup__container" id="addPopup">
                         <button class="popup__button-close"></button>
                         <h2 class="popup__title">Add Image</h2>
-                        <input type="text" placeholder="Image Name" class="popup__input image-name">
-                        <input type="url" placeholder="URL" class="popup__input image-url">
-                        <button type="submit" class="popup__button-save">Add</button>
+                        <input id="card-name" type="text" placeholder="Image Name" class="popup__input popup__input_type_error image-name" required minlength="1" maxlength="30">
+                        <span id="card-name-error" class="popup__error popup__error_visible"></span>
+
+                        <input id="card-url" type="url" placeholder="URL" class="popup__input popup__input_type_error image-url" required>
+                        <span id="card-url-error" class="popup__error popup__error_visible"></span>
+
+                        <button type="submit" class="popup__button-save popup__button_disabled" disabled>Add</button>
                     </form>
                 </section>
 
@@ -79,5 +87,6 @@
         </template>
 
         <script src="./scripts/index.js"></script>
+        <script src="./scripts/validation.js"></script>
     </body>
 </html>
