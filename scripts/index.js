@@ -23,6 +23,10 @@ function togglePopup(popup) {
 function formSubmitHandler (evt) {
     evt.preventDefault(); 
 
+    if(evt.submitter == buttonEditClose) {
+        return;
+    }
+
     nameSet.textContent = nameInput.value;
     jobSet.textContent = jobInput.value;
     togglePopup(editProfileModal);
