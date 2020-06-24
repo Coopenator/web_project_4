@@ -27,13 +27,13 @@ const showInputError = (formElement, inputElement, errorMessage) => {
   };
   
   const toggleButtonState = (inputList, buttonElement) => {
-    console.log(hasInvalidInput(inputList));
     if (hasInvalidInput(inputList)) {
       buttonElement.classList.add("popup__button-save_disabled");
     } else {
       buttonElement.classList.remove("popup__button-save_disabled");
     }
   };
+
   
   const setEventListeners = (formElement) => {
     const inputList = Array.from(formElement.querySelectorAll(".popup__input"));
