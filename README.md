@@ -1,4 +1,4 @@
-# Project 5: Around The U.S.
+# Project 6: Around The U.S.
 
 ### Overview
 
@@ -17,6 +17,11 @@ Also furthering our knowledge of GIT and BEM methodology.
 * added form functionality to Add Card button
 * added popup for image viewing
 * added fading transitions to all popups
+
+**Additions made for Project 6**
+* added form validation to profile and add image popups
+* added click off functions to popups
+* added ESC key close to popups
 
 
 **Website link**
