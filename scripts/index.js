@@ -69,6 +69,8 @@ const togglePopupAlt = () => {
             const escKey = 27;
             if (evt.keyCode === escKey){
                 togglePopup(document.querySelector(".popup_active"));
+        } else {
+            return false;
         }
     });
    });
