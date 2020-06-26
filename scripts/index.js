@@ -61,19 +61,17 @@ const togglePopupAlt = () => {
         modal.addEventListener("click", (evt) => {
         togglePopup(evt.target);
         });
-
     });
+
     popupList.forEach(() => {
         
-        document.addEventListener("keydown", (evt) =>{
+        document.addEventListener("keydown", (evt) => {
             const escKey = 27;
             if (evt.keyCode === escKey){
                 togglePopup(document.querySelector(".popup_active"));
-        } else {
-            return false;
-        }
+            }
+        });
     });
-   });
 }
 
 togglePopupAlt();
