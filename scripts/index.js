@@ -55,26 +55,32 @@ buttonImageClose.addEventListener("click", () => {
     togglePopup(largeImageModal);
 })
 
-const togglePopupAlt = () => {
-    const popupList = Array.from(document.querySelectorAll(".popup"));
-    popupList.forEach((modal) => {
-        modal.addEventListener("click", (evt) => {
-        togglePopup(evt.target);
-        });
-    });
+const modalHandler = (evt) => {
+  togglePopup(evt.target);
+};
 
-    popupList.forEach(() => {
-        
-        document.addEventListener("keydown", (evt) => {
-            const escKey = 27;
-            if (evt.keyCode === escKey){
-                togglePopup(document.querySelector(".popup_active"));
-            }
-        });
-    });
-}
+const keyDownHandler = (evt) => {
+  const escKey = 27;
+  if (evt.keyCode === escKey) {
+    togglePopup(document.querySelector(".popup_active"));
+  }
+};
+
+const togglePopupAlt = () => {
+  const popupList = Array.from(document.querySelectorAll(".popup"));
+  popupList.forEach((modal) => {
+    modal.addEventListener("click", modalHandler);
+  });
+
+  popupList.forEach(() => {
+    document.addEventListener("keydown", keyDownHandler);
+  });
+};
 
 togglePopupAlt();
+
+document.removeEventListener("click", modalHandler);
+document.removeEventListener("keydown", keyDownHandler);
 
 
 
