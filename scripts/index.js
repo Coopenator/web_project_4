@@ -80,7 +80,6 @@ const togglePopupAlt = () => {
 togglePopupAlt();
 
 document.removeEventListener("click", modalHandler);
-document.removeEventListener("keydown", keyDownHandler);
 
 
 
