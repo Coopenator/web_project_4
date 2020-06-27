@@ -63,6 +63,7 @@ const keyDownHandler = (evt) => {
   const escKey = 27;
   if (evt.keyCode === escKey) {
     togglePopup(document.querySelector(".popup_active"));
+    evt.target.removeEventListener('keydown', keyDownHandler);
   }
 };
 
@@ -78,8 +79,6 @@ const togglePopupAlt = () => {
 };
 
 togglePopupAlt();
-
-document.removeEventListener("click", modalHandler);
 
 
 
