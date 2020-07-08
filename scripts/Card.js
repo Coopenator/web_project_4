@@ -66,7 +66,7 @@ class Card {
         cardImage.addEventListener("click", () => {
             popupImage.src = this._link;
             popupImage.alt = this._text;
-            popupTitle.textContent = title;
+            popupTitle.textContent = this._text;
     
             togglePopup(largeImageModal);
         })
