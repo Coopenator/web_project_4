@@ -118,7 +118,7 @@ const renderCard = (data) => {
 }
 
 initialCards.forEach((data) => {
-    renderCard(data.name, data.link);
+    renderCard(data);
 })
 
 addImage.addEventListener('click', (e) => {
