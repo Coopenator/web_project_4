@@ -1,3 +1,15 @@
+import FormValidate from './FormValidate.js';
+import Card from './Card.js';
+
+const defaultConfig = {
+    formSelector: ".popup__container",
+    inputSelector: ".popup__input",
+    submitButtonSelector: ".popup__button-save",
+    inactiveButtonClass: "popup__button-save_disabled",
+    inputErrorClass: "popup__input_type_error",
+    errorClass: "popup__error_visible"
+}
+
 const editProfileModal = document.querySelector(".edit-info");
 const addImageModal = document.querySelector(".add-image");
 const largeImageModal = document.querySelector(".image-large")// Use the querySelector() method
@@ -13,9 +25,20 @@ const buttonAdd = document.querySelector(".profile__button-add");
 const buttonAddClose = addImageModal.querySelector(".popup__button-close");
 const addImage = addImageModal.querySelector(".popup__button-save");
 const buttonImageClose = largeImageModal.querySelector(".popup__button-close");
-const popupImage = largeImageModal.querySelector(".popup__image");
-const popupTitle = largeImageModal.querySelector(".popup__image-title");
 
+const list = document.querySelector(".elements");
+
+//Form Validation
+const addCardForm = addImageModal.querySelector(".popup__container");
+const editProfileForm = editProfileModal.querySelector(".popup__container");
+
+const editProfileValidation = new FormValidate(defaultConfig, editProfileForm);
+const addCardValidation = new FormValidate(defaultConfig, addCardForm);
+
+editProfileValidation.enableValidation();
+addCardValidation.enableValidation();
+
+//Popup controls
 function togglePopup(popup) {
     popup.classList.toggle("popup_active");
 }
@@ -55,33 +78,8 @@ buttonImageClose.addEventListener("click", () => {
     togglePopup(largeImageModal);
 })
 
-const modalHandler = (evt) => {
-  togglePopup(evt.target);
-};
 
-const keyDownHandler = (evt) => {
-  const escKey = 27;
-  if (evt.keyCode === escKey) {
-    togglePopup(document.querySelector(".popup_active"));
-    evt.target.removeEventListener('keydown', keyDownHandler);
-  }
-};
-
-const togglePopupAlt = () => {
-  const popupList = Array.from(document.querySelectorAll(".popup"));
-  popupList.forEach((modal) => {
-    modal.addEventListener("click", modalHandler);
-  });
-
-  popupList.forEach(() => {
-    document.addEventListener("keydown", keyDownHandler);
-  });
-};
-
-togglePopupAlt();
-
-
-
+//Create Card
 const initialCards = [
     {
         name: "Yosemite Valley",
@@ -109,44 +107,14 @@ const initialCards = [
     }
 ];
 
-const cardTemplate = document.querySelector(".card-template").content.querySelector(".card");
+const cardTemplateSelector = ".card-template";
 
-const createCard = (title, image) => {
-    const cardElement = cardTemplate.cloneNode(true);
 
-    const cardTitle = cardElement.querySelector(".element__title");
-    const cardImage = cardElement.querySelector(".element__image");
-    const cardLikeButton = cardElement.querySelector(".element__button-like");
-    const cardRemoveButton = cardElement.querySelector(".element__button-remove");
+//Render Cards
+const renderCard = (data, image) => {
+    const card = new Card(data, cardTemplateSelector);
 
-    cardTitle.textContent = title;
-    cardImage.style.backgroundImage = `url('${image}')`;
-
-    cardLikeButton.addEventListener("click", () => {
-        // change Heart color()
-        cardLikeButton.classList.toggle("element__button-like_active");
-    })
-
-    cardRemoveButton.addEventListener("click", (e) => {
-        // remove card()
-        e.target.closest(".card").remove();
-    })
-
-    cardImage.addEventListener("click", () => {
-        popupImage.src = image;
-        popupImage.alt = title;
-        popupTitle.textContent = title;
-
-        togglePopup(largeImageModal);
-    })
-
-    return cardElement;
-}
-
-const list = document.querySelector(".elements");
-
-const renderCard = (title, image) => {
-    list.prepend(createCard(title, image));
+    list.prepend(card.generateCard());
 }
 
 initialCards.forEach((data) => {

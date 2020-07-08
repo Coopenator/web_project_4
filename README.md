@@ -1,8 +1,8 @@
-# Project 6: Around The U.S.
+# Projects 4-7: Around The U.S.
 
 ### Overview
 
-This is the 4th project in Practicum's website development course. It's focus is to implement a form popup window to modify the profile information for the user. First implementation of JavaScript in the coursework.
+This is the 4th project in Practicum's website development course. It's focus is to implement a form popup window to modify the profile information for the user. First implementation of JavaScript in the coursework. Built from the ground up.
 
 **Techniques**
 * HTML
@@ -22,6 +22,10 @@ Also furthering our knowledge of GIT and BEM methodology.
 * added form validation to profile and add image popups
 * added click off functions to popups
 * added ESC key close to popups
+
+**Additions made for Project 7**
+* re-factored code to reflect studies on Object Oriented Programming
+* implemented import/export functionality in JS files
 
 
 **Website link**
