@@ -111,7 +111,7 @@ const cardTemplateSelector = ".card-template";
 
 
 //Render Cards
-const renderCard = (data, cardTemplateSelector) => {
+const renderCard = (data) => {
     const card = new Card(data, cardTemplateSelector);
 
     list.prepend(card.generateCard());
