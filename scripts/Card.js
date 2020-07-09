@@ -51,6 +51,7 @@ class Card {
         const cardImage = this._card.querySelector(".element__image");
         const popupImage = this._card.querySelector(".popup__image");
         const popupTitle = this._card.querySelector(".popup__image-title");
+        const largeImageModal = document.querySelector(".image-large")
         
 
         cardLikeButton.addEventListener("click", () => {
@@ -70,6 +71,8 @@ class Card {
     
             togglePopup(largeImageModal);
         })
+
+        
     }
 
     generateCard = () => {
