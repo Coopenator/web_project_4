@@ -123,6 +123,6 @@ initialCards.forEach((data) => {
 
 addImage.addEventListener('click', (e) => {
     e.preventDefault();
-    renderCard(imageNameInput.value, imageInput.value);
+    renderCard({name: imageNameInput.value, link: imageInput.value});
     togglePopup(addImageModal);
   });

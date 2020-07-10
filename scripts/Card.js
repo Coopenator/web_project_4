@@ -45,6 +45,18 @@ class Card {
         return cardTemplate;
     }
 
+    generateCard = () => {
+      const element = this._getCardTemplate();
+
+      this._card = element;
+
+      this._card.querySelector('.element__image').style.backgroundImage = `url('${this._link}')`;
+      this._card.querySelector('.element__title').textContent = this._text;
+      this._addEventListeners();
+  
+      return this._card;
+  }
+
     _addEventListeners() {
         const cardLikeButton = this._card.querySelector(".element__button-like");
         const cardRemoveButton = this._card.querySelector(".element__button-remove");
@@ -73,19 +85,6 @@ class Card {
         })
 
         
-    }
-
-    generateCard = () => {
-        const element = this._getCardTemplate();
-
-        this._card = element;
-
-        this._card.querySelector('.element__image').style.backgroundImage = `url('${this._link}')`;
-        this._card.querySelector('.element__title').textContent = this._text;
-    
-        this._addEventListeners();
-    
-        return this._card;
     }
 }
 
