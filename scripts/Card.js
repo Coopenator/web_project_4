@@ -60,9 +60,9 @@ class Card {
     _addEventListeners() {
         const cardLikeButton = this._card.querySelector(".element__button-like");
         const cardRemoveButton = this._card.querySelector(".element__button-remove");
-        const cardImage = this._card.querySelector(".element__image");
-        const popupImage = this._card.querySelector(".popup__image");
-        const popupTitle = this._card.querySelector(".popup__image-title");
+        //const cardImage = this._card.querySelector(".element__image");
+        //const popupImage = this._card.querySelector(".popup__image");
+        //const popupTitle = this._card.querySelector(".popup__image-title");
         const largeImageModal = document.querySelector(".image-large")
         
 
@@ -76,12 +76,23 @@ class Card {
             e.target.closest(".card").remove();
         })
     
-        cardImage.addEventListener("click", () => {
-            popupImage.src = this._link;
-            popupImage.alt = this._text;
-            popupTitle.textContent = this._text;
+        //cardImage.addEventListener("click", () => {
+            //popupImage.src = this._link;
+            //popupImage.alt = this._text;
+           // popupTitle.textContent = this._text;
     
-            togglePopup(largeImageModal);
+            //togglePopup(largeImageModal);
+       // })
+
+        this._card.querySelector(".element__image").addEventListener("click", evt => {
+          const picturePopout = document.querySelector(".popup__image-container");
+          const popupImage = picturePopout.querySelector(".popup__image");
+          const popupTitle = picturePopout.querySelector(".popup__image-title");
+  
+          popupImage.src = evt.target.src;
+          popupImage.alt = evt.target.alt;
+          popupTitle.textContent = evt.target.alt;
+          togglePopup(largeImageModal);
         })
 
         
