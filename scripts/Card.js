@@ -89,7 +89,7 @@ class Card {
           const popupImage = picturePopup.querySelector(".popup__image");
           const popupTitle = picturePopup.querySelector(".popup__image-title");
   
-          popupImage.src = evt.target.backgroundImage;
+          popupImage.src = evt.target.style.backgroundImage;
           popupImage.alt = evt.target.alt;
           popupTitle.textContent = evt.target.alt;
           togglePopup(largeImageModal);
