@@ -85,11 +85,11 @@ class Card {
        // })
 
         this._card.querySelector(".element__image").addEventListener("click", evt => {
-          const picturePopout = document.querySelector(".popup__image-container");
-          const popupImage = picturePopout.querySelector(".popup__image");
-          const popupTitle = picturePopout.querySelector(".popup__image-title");
+          const picturePopup = document.querySelector(".popup__image-container");
+          const popupImage = picturePopup.querySelector(".popup__image");
+          const popupTitle = picturePopup.querySelector(".popup__image-title");
   
-          popupImage.src = evt.target.src;
+          popupImage.src = evt.target.backgroundImage;
           popupImage.alt = evt.target.alt;
           popupTitle.textContent = evt.target.alt;
           togglePopup(largeImageModal);
