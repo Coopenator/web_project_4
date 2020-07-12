@@ -58,20 +58,20 @@ class Card {
   }
 
     _addEventListeners() {
-        const cardLikeButton = this._card.querySelector(".element__button-like");
-        const cardRemoveButton = this._card.querySelector(".element__button-remove");
+        this._heartButton = this._card.querySelector(".element__button-like");
+        this._trashCanButton = this._card.querySelector(".element__button-remove");
         //const cardImage = this._card.querySelector(".element__image");
         //const popupImage = this._card.querySelector(".popup__image");
         //const popupTitle = this._card.querySelector(".popup__image-title");
         const largeImageModal = document.querySelector(".image-large")
         
 
-        cardLikeButton.addEventListener("click", () => {
+        this._heartButton.addEventListener("click", () => {
             // change Heart color()
-            cardLikeButton.classList.toggle("element__button-like_active");
+            this._heartButton.classList.toggle("element__button-like_active");
         })
     
-        cardRemoveButton.addEventListener("click", (e) => {
+        this._trashCanButton.addEventListener("click", (e) => {
             // remove card()
             e.target.closest(".card").remove();
         })
