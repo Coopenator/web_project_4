@@ -63,7 +63,7 @@ class Card {
         //const cardImage = this._card.querySelector(".element__image");
         //const popupImage = this._card.querySelector(".popup__image");
         //const popupTitle = this._card.querySelector(".popup__image-title");
-        const largeImageModal = document.querySelector(".image-large")
+        
         
 
         this._heartButton.addEventListener("click", () => {
@@ -73,7 +73,7 @@ class Card {
     
         this._trashCanButton.addEventListener("click", (e) => {
             // remove card()
-            e.target.closest(".card").remove();
+            this._card.closest(".card").remove();
         })
     
         //cardImage.addEventListener("click", () => {
@@ -84,10 +84,11 @@ class Card {
             //togglePopup(largeImageModal);
        // })
 
-        this._card.querySelector(".element__image").addEventListener("click", evt => {
+        this._card.querySelector(".element__image").addEventListener("click", (evt) => {
           const picturePopup = document.querySelector(".popup__image-container");
           const popupImage = picturePopup.querySelector(".popup__image");
           const popupTitle = picturePopup.querySelector(".popup__image-title");
+          const largeImageModal = document.querySelector(".image-large")
   
           popupImage.src = this._link;
           popupImage.alt = this._text;
