@@ -27,6 +27,9 @@ Also furthering our knowledge of GIT and BEM methodology.
 * re-factored code to reflect studies on Object Oriented Programming
 * implemented import/export functionality in JS files
 
+**Additions made for Project 8**
+* installed and utilized Webpack and plugins to streamline code loading
+* completed re-factoring of JS code into classes
 
 **Website link**
 
