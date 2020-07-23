@@ -23,7 +23,7 @@ const cardGroup = new Section({
 }, list)
 cardGroup.renderItems();
 
-const profileForm = new PopupWithForm({popupSelector:editProfileModal, formSubmission: ()=> {
+const profileForm = new PopupWithForm({popupSelector:editProfileModal, handleSubmitForm: ()=> {
     const profileInfo = new UserInfo(nameInput.value, jobInput.value);
     profileInfo.setUserInfo();
     profileForm.close()}})
@@ -39,7 +39,7 @@ const addCardValidation = new FormValidate(defaultConfig, addCardForm);
 editProfileValidation.enableValidation();
 addCardValidation.enableValidation();
 
-const imageForm = new PopupWithForm({popupSelector:addImageModal, formSubmission: () => {
+const imageForm = new PopupWithForm({popupSelector:addImageModal, handleSubmitForm: () => {
         const card = new Card ({imageForm:inputValues, handleCardClick:() => {
             const imagePopup = new PopupWithImage(largeImageModal);
             imagePopup.open({link:imageInput.value, name:imageNameInput.value});}
