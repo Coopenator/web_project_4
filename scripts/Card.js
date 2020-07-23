@@ -28,10 +28,10 @@ const keyDownHandler = (evt) => {
   togglePopupAlt();
 
 class Card {
-    constructor(data, cardTemplateSelector) {
+    constructor({data, handleCardClick}, cardTemplateSelector) {
         this._link = data.link;
         this._text = data.name;
-
+        this._handleCardClick = handleCardClick;
         this._cardTemplateSelector = cardTemplateSelector;
     }
 

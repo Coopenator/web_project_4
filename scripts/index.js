@@ -1,33 +1,34 @@
 import FormValidate from './FormValidate.js';
 import Card from './Card.js';
+import {togglePopup} from '../utils/utils.js';
+import {defaultConfig, initialCards, cardTemplateSelector, nameInput, jobInput, nameSet, jobSet, imageNameInput, imageInput, buttonEdit, buttonEditClose, buttonAdd, buttonAddClose, addImage, buttonImageClose, list, editProfileModal, addImageModal, largeImageModal} from '../utils/constants.js';
+import Popup from './Popup.js';
+import PopupWithForm from './PopupWithForm.js';
+import PopupWithImage from './PopupWithImage.js';
+import Section from './Section.js';
+import UserInfo from './UserInfo.js';
+//import '../pages/index.css';
 
-const defaultConfig = {
-    formSelector: ".popup__container",
-    inputSelector: ".popup__input",
-    submitButtonSelector: ".popup__button-save",
-    inactiveButtonClass: "popup__button-save_disabled",
-    inputErrorClass: "popup__input_type_error",
-    errorClass: "popup__error_visible"
-}
+const cardGroup = new Section({
+    items: initialCards,
+    renderer: (data)=> { 
+        const card = new Card ({
+            data, handleCardClick:()=>{
+                const imagePopup = new PopupWithImage(largeImageModal);
+                imagePopup.open({data});} 
+            }, ".card-template")
+            cardGroup.addItem(card.generateCard());
+        }, 
+        
+}, list)
+cardGroup.renderItems();
 
-const editProfileModal = document.querySelector(".edit-info");
-const addImageModal = document.querySelector(".add-image");
-const largeImageModal = document.querySelector(".image-large")// Use the querySelector() method
-const nameInput = editProfileModal.querySelector(".name");// Use querySelector()
-const jobInput = editProfileModal.querySelector(".job");// Use querySelector()
-const nameSet = document.querySelector(".profile__name");
-const jobSet = document.querySelector(".profile__profession");
-const imageNameInput = addImageModal.querySelector(".image-name");
-const imageInput = addImageModal.querySelector(".image-url");
-const buttonEdit = document.querySelector(".profile__button-edit");
-const buttonEditClose = editProfileModal.querySelector(".popup__button-close");
-const buttonAdd = document.querySelector(".profile__button-add");
-const buttonAddClose = addImageModal.querySelector(".popup__button-close");
-const addImage = addImageModal.querySelector(".popup__button-save");
-const buttonImageClose = largeImageModal.querySelector(".popup__button-close");
+const profileForm = new PopupWithForm({popupSelector:editProfileModal, formSubmission: ()=> {
+    const profileInfo = new UserInfo(nameInput.value, jobInput.value);
+    profileInfo.setUserInfo();
+    profileForm.close()}})
 
-const list = document.querySelector(".elements");
-
+    
 //Form Validation
 const addCardForm = addImageModal.querySelector(".popup__container");
 const editProfileForm = editProfileModal.querySelector(".popup__container");
@@ -38,76 +39,57 @@ const addCardValidation = new FormValidate(defaultConfig, addCardForm);
 editProfileValidation.enableValidation();
 addCardValidation.enableValidation();
 
-//Popup controls
-function togglePopup(popup) {
-    popup.classList.toggle("popup_active");
-}
-
-function formSubmitHandler (evt) {
-    evt.preventDefault(); 
-
-    if(evt.submitter == buttonEditClose) {
-        return;
+const imageForm = new PopupWithForm({popupSelector:addImageModal, formSubmission: () => {
+        const card = new Card ({imageForm:inputValues, handleCardClick:() => {
+            const imagePopup = new PopupWithImage(largeImageModal);
+            imagePopup.open({link:imageInput.value, name:imageNameInput.value});}
+        }, ".card-template");
+        cardGroup.addItem(card.generateCard());
+        imageForm.close();
     }
-
-    nameSet.textContent = nameInput.value;
-    jobSet.textContent = jobInput.value;
-    togglePopup(editProfileModal);
-
-}
-
-editProfileModal.addEventListener('submit', formSubmitHandler);
-
-buttonEdit.addEventListener("click", () => {
-    togglePopup(editProfileModal);
 })
 
-buttonEditClose.addEventListener("click", () => {
-    togglePopup(editProfileModal);
-})
+//Popup controls
+//function formSubmitHandler (evt) {
+    //evt.preventDefault(); 
 
-buttonAdd.addEventListener("click", () => {
-    togglePopup(addImageModal);
-})
+   //if(evt.submitter == buttonEditClose) {
+       // return;
+   //}
 
-buttonAddClose.addEventListener("click", () => {
-    togglePopup(addImageModal);
-})
+    //nameSet.textContent = nameInput.value;
+    //jobSet.textContent = jobInput.value;
+    //togglePopup(editProfileModal);
 
-buttonImageClose.addEventListener("click", () => {
-    togglePopup(largeImageModal);
-})
+//}
+
+//editProfileModal.addEventListener('submit', formSubmitHandler);
+
+//buttonEdit.addEventListener("click", () => {
+    //togglePopup(editProfileModal);
+//})
+
+//buttonEditClose.addEventListener("click", () => {
+    //togglePopup(editProfileModal);
+//})
+
+//buttonAdd.addEventListener("click", () => {
+    //togglePopup(addImageModal);
+//})
+
+//buttonAddClose.addEventListener("click", () => {
+    //togglePopup(addImageModal);
+//})
+
+//buttonImageClose.addEventListener("click", () => {
+    //togglePopup(largeImageModal);
+//})
 
 
 //Create Card
-const initialCards = [
-    {
-        name: "Yosemite Valley",
-        link: "https://code.s3.yandex.net/web-code/yosemite.jpg"
-    },
-    {
-        name: "Lake Louise",
-        link: "https://code.s3.yandex.net/web-code/lake-louise.jpg"
-    },
-    {
-        name: "Bald Mountains",
-        link: "https://code.s3.yandex.net/web-code/bald-mountains.jpg"
-    },
-    {
-        name: "Latemar",
-        link: "https://code.s3.yandex.net/web-code/latemar.jpg"
-    },
-    {
-        name: "Vanois National Park",
-        link: "https://code.s3.yandex.net/web-code/vanois.jpg"
-    },
-    {
-        name: "Lago di Braies",
-        link: "https://code.s3.yandex.net/web-code/lago.jpg"
-    }
-];
 
-const cardTemplateSelector = ".card-template";
+
+
 
 
 //Render Cards
