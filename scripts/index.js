@@ -9,6 +9,7 @@ import Section from './Section.js';
 import UserInfo from './UserInfo.js';
 //import '../pages/index.css';
 
+//Initial Cards
 const cardGroup = new Section({
     items: initialCards,
     renderer: (data)=> { 
@@ -23,11 +24,13 @@ const cardGroup = new Section({
 }, list)
 cardGroup.renderItems();
 
+//Edit Profile Form
 const profileForm = new PopupWithForm({popupSelector:editProfileModal, handleSubmitForm: ()=> {
     const profileInfo = new UserInfo(nameInput.value, jobInput.value);
     profileInfo.setUserInfo();
-    profileForm.close()}})
-
+    profileForm.close()
+    }
+})
     
 //Form Validation
 const addCardForm = addImageModal.querySelector(".popup__container");
@@ -39,6 +42,7 @@ const addCardValidation = new FormValidate(defaultConfig, addCardForm);
 editProfileValidation.enableValidation();
 addCardValidation.enableValidation();
 
+//Add Image Form
 const imageForm = new PopupWithForm({popupSelector:addImageModal, handleSubmitForm: () => {
         const card = new Card ({imageForm:inputValues, handleCardClick:() => {
             const imagePopup = new PopupWithImage(largeImageModal);
@@ -48,6 +52,9 @@ const imageForm = new PopupWithForm({popupSelector:addImageModal, handleSubmitFo
         imageForm.close();
     }
 })
+
+buttonEdit.addEventListener("click", () => profileForm.open());
+buttonAdd.addEventListener("click", () => imageForm.open());
 
 //Popup controls
 //function formSubmitHandler (evt) {
@@ -103,8 +110,8 @@ initialCards.forEach((data) => {
     renderCard(data);
 })
 
-addImage.addEventListener('click', (e) => {
-    e.preventDefault();
-    renderCard({name: imageNameInput.value, link: imageInput.value});
-    togglePopup(addImageModal);
-  });
+//addImage.addEventListener('click', (e) => {
+    //e.preventDefault();
+    //renderCard({name: imageNameInput.value, link: imageInput.value});
+    //togglePopup(addImageModal);
+  //});

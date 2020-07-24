@@ -1,7 +1,7 @@
 //const escKey = 27;
 class Popup {
     constructor(popupSelector) {
-        this._popupElement = document.querySelector(popupSelector);
+        this._popupElement = popupSelector;
         this._handleEscClose = this._handleEscClose.bind(this);
     }
 
@@ -25,8 +25,13 @@ class Popup {
     setEventListeners() {
         this._popupElement
             .querySelector('.popup__button-close')
-            .addEventListener('click', (e) => {
-                this.close()
+            .addEventListener('click', () => {
+                this.close();
+        this._popupElement.addEventListener('click', (evt) => {
+            if(evt.target !== this)
+            return;
+            this.close();
+        })
         })
     }
 }
