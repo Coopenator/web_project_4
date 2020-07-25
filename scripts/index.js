@@ -100,15 +100,15 @@ buttonAdd.addEventListener("click", () => imageForm.open());
 
 
 //Render Cards
-const renderCard = (data) => {
-    const card = new Card(data, cardTemplateSelector);
+// const renderCard = (data) => {
+//     const card = new Card(data, cardTemplateSelector);
 
-    list.prepend(card.generateCard());
-}
+//     list.prepend(card.generateCard());
+// }
 
-initialCards.forEach((data) => {
-    renderCard(data);
-})
+// initialCards.forEach((data) => {
+//     renderCard(data);
+// })
 
 //addImage.addEventListener('click', (e) => {
     //e.preventDefault();
