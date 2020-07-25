@@ -7,12 +7,12 @@ class Popup {
 
     open() {
         this.setEventListeners();
-        this._popupElement.classList.add('.popup_active')
+        this._popupElement.classList.add('popup_active')
         document.addEventListener('keyup', this._handleEscClose)
     }
 
     close() {
-        this._popupElement.classList.remove('.popup_active')
+        this._popupElement.classList.remove('popup_active')
         document.removeEventListener('keyup', this._handleEscClose)
     }
 

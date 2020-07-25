@@ -44,11 +44,11 @@ addCardValidation.enableValidation();
 
 //Add Image Form
 const imageForm = new PopupWithForm({popupSelector:addImageModal, handleSubmitForm: () => {
-        const card = new Card ({imageForm:inputValues, handleCardClick:() => {
+        const newCard = new Card ({data:{name: imageNameInput.value, link: imageInput.value}, handleCardClick:(data)=>{
             const imagePopup = new PopupWithImage(largeImageModal);
-            imagePopup.open({link:imageInput.value, name:imageNameInput.value});}
+            imagePopup.open({data});} 
         }, ".card-template");
-        cardGroup.addItem(card.generateCard());
+        cardGroup.addItem(newCard.generateCard());
         imageForm.close();
     }
 })

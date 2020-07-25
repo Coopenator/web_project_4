@@ -1,31 +1,31 @@
-function togglePopup(popup) {
-    popup.classList.toggle("popup_active");
-}
+// function togglePopup(popup) {
+//     popup.classList.toggle("popup_active");
+// }
 
-const modalHandler = (evt) => {
-    togglePopup(evt.target);
-  };  
+// const modalHandler = (evt) => {
+//     togglePopup(evt.target);
+//   };  
 
-const keyDownHandler = (evt) => {
-    const escKey = 27;
-    if (evt.keyCode === escKey) {
-      togglePopup(document.querySelector(".popup_active"));
-      evt.target.removeEventListener('keydown', keyDownHandler);
-    }
-  };
+// const keyDownHandler = (evt) => {
+//     const escKey = 27;
+//     if (evt.keyCode === escKey) {
+//       togglePopup(document.querySelector(".popup_active"));
+//       evt.target.removeEventListener('keydown', keyDownHandler);
+//     }
+//   };
   
-  const togglePopupAlt = () => {
-    const popupList = Array.from(document.querySelectorAll(".popup"));
-    popupList.forEach((modal) => {
-      modal.addEventListener("click", modalHandler);
-    });
+//   const togglePopupAlt = () => {
+//     const popupList = Array.from(document.querySelectorAll(".popup"));
+//     popupList.forEach((modal) => {
+//       modal.addEventListener("click", modalHandler);
+//     });
   
-    popupList.forEach(() => {
-      document.addEventListener("keydown", keyDownHandler);
-    });
-  };
+//     popupList.forEach(() => {
+//       document.addEventListener("keydown", keyDownHandler);
+//     });
+//   };
   
-  togglePopupAlt();
+//   togglePopupAlt();
 
 class Card {
     constructor({data, handleCardClick}, cardTemplateSelector) {
@@ -75,6 +75,10 @@ class Card {
             // remove card()
             this._card.closest(".card").remove();
         })
+
+        this._card.querySelector(".element__image").addEventListener("click", () => { 
+          this._handleCardClick(this._card); 
+        });
     
         //cardImage.addEventListener("click", () => {
             //popupImage.src = this._link;
@@ -84,17 +88,17 @@ class Card {
             //togglePopup(largeImageModal);
        // })
 
-        this._card.querySelector(".element__image").addEventListener("click", (evt) => {
-          const picturePopup = document.querySelector(".popup__image-container");
-          const popupImage = picturePopup.querySelector(".popup__image");
-          const popupTitle = picturePopup.querySelector(".popup__image-title");
-          const largeImageModal = document.querySelector(".image-large")
+        //this._card.querySelector(".element__image").addEventListener("click", (evt) => {
+         //onst picturePopup = document.querySelector(".popup__image-container");
+          //const popupImage = picturePopup.querySelector(".popup__image");
+          //const popupTitle = picturePopup.querySelector(".popup__image-title");
+          //const largeImageModal = document.querySelector(".image-large")
   
-          popupImage.src = this._link;
-          popupImage.alt = this._text;
-          popupTitle.textContent = this._text;
-          togglePopup(largeImageModal);
-        })
+          //popupImage.src = this._link;
+          //popupImage.alt = this._text;
+          //popupTitle.textContent = this._text;
+          //togglePopup(largeImageModal);
+        //})
 
         
     }
