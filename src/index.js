@@ -1,13 +1,13 @@
-import FormValidate from './FormValidate.js';
-import Card from './Card.js';
-import {togglePopup} from '../utils/utils.js';
-import {defaultConfig, initialCards, cardTemplateSelector, nameInput, jobInput, nameSet, jobSet, imageNameInput, imageInput, buttonEdit, buttonEditClose, buttonAdd, buttonAddClose, addImage, buttonImageClose, list, editProfileModal, addImageModal, largeImageModal} from '../utils/constants.js';
-import Popup from './Popup.js';
-import PopupWithForm from './PopupWithForm.js';
-import PopupWithImage from './PopupWithImage.js';
-import Section from './Section.js';
-import UserInfo from './UserInfo.js';
-//import '../pages/index.css';
+import FormValidate from './scripts/FormValidate.js';
+import Card from './scripts/Card.js';
+import {togglePopup} from './utils/utils.js';
+import {defaultConfig, initialCards, cardTemplateSelector, nameInput, jobInput, nameSet, jobSet, imageNameInput, imageInput, buttonEdit, buttonEditClose, buttonAdd, buttonAddClose, addImage, buttonImageClose, list, editProfileModal, addImageModal, largeImageModal} from './utils/constants.js';
+import Popup from './scripts/Popup.js';
+import PopupWithForm from './scripts/PopupWithForm.js';
+import PopupWithImage from './scripts/PopupWithImage.js';
+import Section from './scripts/Section.js';
+import UserInfo from './scripts/UserInfo.js';
+//import './pages/index.css';
 
 //Initial Cards
 const cardGroup = new Section({
@@ -100,18 +100,18 @@ buttonAdd.addEventListener("click", () => imageForm.open());
 
 
 //Render Cards
-// const renderCard = (data) => {
-//     const card = new Card(data, cardTemplateSelector);
+ const renderCard = (data) => {
+     const card = new Card(data, cardTemplateSelector);
 
-//     list.prepend(card.generateCard());
-// }
+     list.prepend(card.generateCard());
+ }
 
-// initialCards.forEach((data) => {
-//     renderCard(data);
-// })
+ initialCards.forEach((data) => {
+     renderCard(data);
+ })
 
-//addImage.addEventListener('click', (e) => {
-    //e.preventDefault();
-    //renderCard({name: imageNameInput.value, link: imageInput.value});
-    //togglePopup(addImageModal);
-  //});
+addImage.addEventListener('click', (e) => {
+    e.preventDefault();
+    renderCard({name: imageNameInput.value, link: imageInput.value});
+    togglePopup(addImageModal);
+  });
