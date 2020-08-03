@@ -1,32 +1,3 @@
-// function togglePopup(popup) {
-//     popup.classList.toggle("popup_active");
-// }
-
-// const modalHandler = (evt) => {
-//     togglePopup(evt.target);
-//   };  
-
-// const keyDownHandler = (evt) => {
-//     const escKey = 27;
-//     if (evt.keyCode === escKey) {
-//       togglePopup(document.querySelector(".popup_active"));
-//       evt.target.removeEventListener('keydown', keyDownHandler);
-//     }
-//   };
-  
-//   const togglePopupAlt = () => {
-//     const popupList = Array.from(document.querySelectorAll(".popup"));
-//     popupList.forEach((modal) => {
-//       modal.addEventListener("click", modalHandler);
-//     });
-  
-//     popupList.forEach(() => {
-//       document.addEventListener("keydown", keyDownHandler);
-//     });
-//   };
-  
-//   togglePopupAlt();
-
 class Card {
     constructor({data, handleCardClick}, cardTemplateSelector) {
         this._link = data.link;
@@ -45,7 +16,7 @@ class Card {
         return cardTemplate;
     }
 
-    generateCard = () => {
+    generateCard() {
       const element = this._getCardTemplate();
 
       this._card = element;

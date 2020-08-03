@@ -27,11 +27,12 @@ class Popup {
             .querySelector('.popup__button-close')
             .addEventListener('click', () => {
                 this.close();
-        this._popupElement.addEventListener('click', (evt) => {
-            if(evt.target !== this)
-            return;
-            this.close();
-        })
+            })
+        this._popupElement.addEventListener('click', (e) => {
+            if(!e.target.closest(".popup__container")) {
+                this.close();
+            }
+
         })
     }
 }

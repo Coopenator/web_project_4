@@ -7,19 +7,22 @@ import PopupWithForm from './scripts/PopupWithForm.js';
 import PopupWithImage from './scripts/PopupWithImage.js';
 import Section from './scripts/Section.js';
 import UserInfo from './scripts/UserInfo.js';
-//import './pages/index.css';
+import './pages/index.css';
+
+const imagePopup = new PopupWithImage(largeImageModal);
 
 //Initial Cards
 const cardGroup = new Section({
     items: initialCards,
     renderer: (data)=> { 
         const card = new Card ({
-            data, handleCardClick:()=>{
-                const imagePopup = new PopupWithImage(largeImageModal);
-                imagePopup.open({data});} 
-            }, ".card-template")
-            cardGroup.addItem(card.generateCard());
-        }, 
+            data, 
+            handleCardClick:()=>{
+                imagePopup.open(data);
+            } 
+        }, ".card-template")
+        cardGroup.addItem(card.generateCard());
+    }, 
         
 }, list)
 cardGroup.renderItems();
@@ -43,10 +46,13 @@ editProfileValidation.enableValidation();
 addCardValidation.enableValidation();
 
 //Add Image Form
-const imageForm = new PopupWithForm({popupSelector:addImageModal, handleSubmitForm: () => {
-        const newCard = new Card ({data:{name: imageNameInput.value, link: imageInput.value}, handleCardClick:(data)=>{
-            const imagePopup = new PopupWithImage(largeImageModal);
-            imagePopup.open({data});} 
+const imageForm = new PopupWithForm({
+    popupSelector:addImageModal, handleSubmitForm: () => {
+        const newCard = new Card ({
+            data:{ name: imageNameInput.value, link: imageInput.value }, 
+            handleCardClick:(data)=>{
+                imagePopup.open({ data });
+            } 
         }, ".card-template");
         cardGroup.addItem(newCard.generateCard());
         imageForm.close();
@@ -100,18 +106,16 @@ buttonAdd.addEventListener("click", () => imageForm.open());
 
 
 //Render Cards
- const renderCard = (data) => {
-     const card = new Card(data, cardTemplateSelector);
+ //const renderCard = (data) => {
+    //const card = new Card({data: data, handleCardClick: (obj) => {
+        //imagePopup.open(obj)
+    //}}, cardTemplateSelector);
 
-     list.prepend(card.generateCard());
- }
+     //list.prepend(card.generateCard());
+ //}
 
- initialCards.forEach((data) => {
-     renderCard(data);
- })
-
-addImage.addEventListener('click', (e) => {
-    e.preventDefault();
-    renderCard({name: imageNameInput.value, link: imageInput.value});
-    togglePopup(addImageModal);
-  });
+//addImage.addEventListener('click', (e) => {
+    //e.preventDefault();
+    //renderCard({name: imageNameInput.value, link: imageInput.value});
+    //togglePopup(addImageModal);
+  //});
