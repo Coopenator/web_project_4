@@ -31,10 +31,6 @@ class Card {
     _addEventListeners() {
         this._heartButton = this._card.querySelector(".element__button-like");
         this._trashCanButton = this._card.querySelector(".element__button-remove");
-        //const cardImage = this._card.querySelector(".element__image");
-        //const popupImage = this._card.querySelector(".popup__image");
-        //const popupTitle = this._card.querySelector(".popup__image-title");
-        
         
 
         this._heartButton.addEventListener("click", () => {
@@ -50,26 +46,6 @@ class Card {
         this._card.querySelector(".element__image").addEventListener("click", () => { 
           this._handleCardClick(this._card); 
         });
-    
-        //cardImage.addEventListener("click", () => {
-            //popupImage.src = this._link;
-            //popupImage.alt = this._text;
-           // popupTitle.textContent = this._text;
-    
-            //togglePopup(largeImageModal);
-       // })
-
-        //this._card.querySelector(".element__image").addEventListener("click", (evt) => {
-         //onst picturePopup = document.querySelector(".popup__image-container");
-          //const popupImage = picturePopup.querySelector(".popup__image");
-          //const popupTitle = picturePopup.querySelector(".popup__image-title");
-          //const largeImageModal = document.querySelector(".image-large")
-  
-          //popupImage.src = this._link;
-          //popupImage.alt = this._text;
-          //popupTitle.textContent = this._text;
-          //togglePopup(largeImageModal);
-        //})
 
         
     }

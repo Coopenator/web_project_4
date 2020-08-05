@@ -14,14 +14,14 @@ class PopupWithForm extends Popup {
     _getInputValues() {
         const inputValues = Array.from(this._form.querySelectorAll(".popup__input"));
         this._formValues = {};
-        inputValues.forEach(input => this.formValues[input.name]= input.value);
+        inputValues.forEach(input => this._formValues[input.name] = input.value);
         return this._formValues;
     }
 
     setEventListeners() {
         this._form.addEventListener("submit", (evt) => {
-            evt.preventDefault;
-            this._handleSubmitForm();
+            evt.preventDefault();
+            this._handleSubmitForm(this._getInputValues());
             this.close();
         })
         super.setEventListeners();
@@ -33,10 +33,6 @@ class PopupWithForm extends Popup {
     }
 
     open() {
-        
-        if(this._popupElement.classList.contains('add-image')) {
-            this._popupElement.querySelector('.popup__container').reset();
-        }
 
         if(this._popupElement.classList.contains('edit-info')) {
             this._popupName.value = this._profileName.textContent;

@@ -2,7 +2,7 @@
 
 ### Overview
 
-This is the 4th project in Practicum's website development course. It's focus is to implement a form popup window to modify the profile information for the user. First implementation of JavaScript in the coursework. Built from the ground up.
+This is the 4th project in Practicum's website development course. It's focus is to implement a form popup window to modify the profile information for the user, and add gallery images and titles. First implementation of JavaScript in the coursework. Built from the ground up.
 
 **Techniques**
 * HTML
@@ -11,7 +11,7 @@ This is the 4th project in Practicum's website development course. It's focus is
 * grid
 * flex
 
-Also furthering our knowledge of GIT and BEM methodology.
+Also furthering our knowledge of GIT, and BEM methodology.
 
 **Additions made for Project 5**
 * added form functionality to Add Card button

@@ -29,7 +29,7 @@ class Popup {
                 this.close();
             })
         this._popupElement.addEventListener('click', (e) => {
-            if(!e.target.closest(".popup__container")) {
+            if (!e.target.closest(".popup__container")) {
                 this.close();
             }
 
