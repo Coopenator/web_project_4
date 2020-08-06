@@ -43,9 +43,6 @@ const imageForm = new PopupWithForm({
             data: { name: imageNameInput.value, link: imageInput.value },
             handleCardClick: (data) => {
                 imagePopup.open({ data });
-                if (this._popupElement.classList.contains('add-image')) {
-                    this._popupElement.querySelector('.popup__container').reset();
-                }
             }
         }, ".card-template");
         cardGroup.addItem(newCard.generateCard());
@@ -65,5 +62,16 @@ addCardValidation.enableValidation();
 
 
 
-buttonEdit.addEventListener("click", () => profileForm.open());
-buttonAdd.addEventListener("click", () => imageForm.open());
+buttonEdit.addEventListener("click", () => {
+    profileForm.open();
+    if (this._popupElement.classList.contains('edit-info')) {
+        this._popupName.value = this._profileName.textContent;
+        this._popupJob.value = this._profileJob.textContent;
+    };
+});
+buttonAdd.addEventListener("click", () => {
+    imageForm.open();
+    if (this._popupElement.classList.contains('add-image')) {
+        this._popupElement.querySelector('.popup__container').reset();
+    };
+});
