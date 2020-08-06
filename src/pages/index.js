@@ -43,9 +43,6 @@ const imageForm = new PopupWithForm({
             data: { name: imageNameInput.value, link: imageInput.value },
             handleCardClick: (data) => {
                 imagePopup.open({ data });
-                if (this._popupElement.classList.contains('add-image')) {
-                    this._popupElement.querySelector('.popup__container').reset();
-                };
             }
         }, ".card-template");
         cardGroup.addItem(newCard.generateCard());
