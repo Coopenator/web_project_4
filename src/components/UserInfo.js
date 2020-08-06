@@ -5,10 +5,10 @@ class UserInfo {
     }
 
     getUserInfo() {
-        return {name: this._name.textContent, job: this._job.textContent};
+        return { name: this._name.textContent, job: this._job.textContent };
     }
 
-    setUserInfo({userName, userJob}) {
+    setUserInfo({ userName, userJob }) {
         this._name.textContent = userName;
         this._job.textContent = userJob;
     }

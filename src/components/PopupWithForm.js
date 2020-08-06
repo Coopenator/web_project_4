@@ -33,6 +33,11 @@ class PopupWithForm extends Popup {
     }
 
     open() {
+        
+        if (this._popupElement.classList.contains('edit-info')) {
+            this._popupName.value = this._profileName.textContent;
+            this._popupJob.value = this._profileJob.textContent;
+        };
         super.open();
     }
 }
