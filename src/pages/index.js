@@ -10,6 +10,10 @@ import UserInfo from '../components/UserInfo.js';
 import './index.css';
 
 const imagePopup = new PopupWithImage(largeImageModal);
+const popupName = document.querySelector(".name");
+const popupJob = document.querySelector(".job");
+const profileName = document.querySelector(".profile__name");
+const profileJob = document.querySelector(".profile__profession");
 
 
 //Initial Cards
@@ -62,5 +66,9 @@ addCardValidation.enableValidation();
 
 
 
-buttonEdit.addEventListener("click", () => profileForm.open());
+buttonEdit.addEventListener("click", () => {
+    profileForm.open();
+    popupName.value = profileName.textContent;
+    popupJob.value = profileJob.textContent;
+});
 buttonAdd.addEventListener("click", () => imageForm.open());
