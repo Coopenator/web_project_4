@@ -38,6 +38,15 @@ const profileForm = new PopupWithForm({
     popupSelector: editProfileModal, handleSubmitForm: () => {
         userInfo.setUserInfo({ userName: nameInput.value, userJob: jobInput.value });
     }
+
+});
+
+profileForm.setEventListeners();
+
+buttonEdit.addEventListener("click", () => {
+    profileForm.open();
+    popupName.value = profileName.textContent;
+    popupJob.value = profileJob.textContent;
 });
 
 //Add Image Form
@@ -54,6 +63,10 @@ const imageForm = new PopupWithForm({
     }
 })
 
+imageForm.setEventListeners();
+
+buttonAdd.addEventListener("click", () => imageForm.open());
+
 //Form Validation
 const addCardForm = addImageModal.querySelector(".popup__container");
 const editProfileForm = editProfileModal.querySelector(".popup__container");
@@ -66,9 +79,4 @@ addCardValidation.enableValidation();
 
 
 
-buttonEdit.addEventListener("click", () => {
-    profileForm.open();
-    popupName.value = profileName.textContent;
-    popupJob.value = profileJob.textContent;
-});
-buttonAdd.addEventListener("click", () => imageForm.open());
+
