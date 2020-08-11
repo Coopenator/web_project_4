@@ -63,6 +63,8 @@ imageForm.setEventListeners();
 
 buttonAdd.addEventListener("click", () => imageForm.open());
 
+imagePopup.setEventListeners();
+
 //Form Validation
 const addCardForm = addImageModal.querySelector(".popup__container");
 const editProfileForm = editProfileModal.querySelector(".popup__container");
